@@ -24,11 +24,11 @@ public class ProductDAOImpl implements ProductDAO{
 
    private void createTable() {
     try {
-    	String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double , pgst double, pqnty int, ptotal double)";
+    	String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double precision , pgst double precision, pqnty int, ptotal double precision)";
     	jdbcTemplate.execute(sqlCreate);
     }
     catch(Exception e) {
-    	System.out.println("exception in creating table");
+    	System.out.println("exception in creating table" + e);
     }
     
     
