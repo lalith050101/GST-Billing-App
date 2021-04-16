@@ -21,6 +21,12 @@ public class ProductDAOImpl implements ProductDAO{
     public ProductDAOImpl(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
+
+   private void createTable() throws SQLException {
+    String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double , pgst double, pqnty int, ptotal double);
+    Statement stmt = conn.createStatement();
+    stmt.execute(sqlCreate);
+     }
  
     @Override
     public boolean saveOrUpdate(Product product, String pdcode, String pdname) {
