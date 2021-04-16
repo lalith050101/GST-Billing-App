@@ -6,7 +6,7 @@ This application have a provision to maintain a database for storing all product
 The application contains products page to list all available products in the store.  
 The app provides adding, updating or deletion of a product.  
  
-Also,the application provides add products to cart and billing of product which can be printed or downloaded as PDF.  
+Also,the application provides facility of adding products to cart and billing of cart products which can be printed or downloaded as PDF.  
 
 
 ## Demo:
