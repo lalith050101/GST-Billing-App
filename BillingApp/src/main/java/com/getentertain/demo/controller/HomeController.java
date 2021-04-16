@@ -29,7 +29,7 @@ public class HomeController {
 	 
 	 @RequestMapping(value="/")
 	 public ModelAndView listProduct(ModelAndView model) throws IOException{
-	     List<Product> listProduct = productDAO.list();
+		 List<Product> listProduct = productDAO.list();
 	     model.addObject("listProduct", listProduct);
 	     model.setViewName("home");
 	     return model;
@@ -47,8 +47,11 @@ public class HomeController {
 	 @RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
 	 public ModelAndView saveProduct(@Valid @ModelAttribute Product product,BindingResult result,HttpServletRequest request) {
 		 
+		 String pdcode = request.getParameter("pdcode");
+		 String pdname = request.getParameter("pdname");
+		 //Product prevProduct = productDAO.get(pdcode);
+		 
 		 if(result.hasErrors()) {
-			System.out.println("invalid value");
 			ModelAndView model = new ModelAndView();
 			model.setViewName("ProductForm");
 		 model.addObject(product);
@@ -56,15 +59,15 @@ public class HomeController {
 			return model;
 		 }
 		 
-		 String pdcode = request.getParameter("pdcode");
-		 String pdname = request.getParameter("pdname");
+		 
+		 
 		 boolean isupdate=productDAO.saveOrUpdate(product,pdcode,pdname);
 		 if(!isupdate)
 		 {
 			 Product newProduct = new Product();
 			 ModelAndView model = new ModelAndView("ProductForm");
 			 model.addObject("product", newProduct);
-		     model.addObject("msg","Sorry, product credentials already exists. Try some other code");
+		     model.addObject("msg","Sorry, product credentials already exists. Try some other.");
 		     return model;
 		 }
 	     return new ModelAndView("redirect:/");

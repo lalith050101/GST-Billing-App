@@ -1,6 +1,8 @@
 package com.getentertain.demo.model;
 
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 public class Product {
@@ -8,12 +10,14 @@ public class Product {
     @Size(min = 1 , max = 30 , message="* Code should be 1 to 30 characters")
 	private String code;
 	@NotBlank(message="*Product Name can't be blank")
-    @Size(min = 1 , max = 30 , message="* Code should be 1 to 30 characters")
+    @Size(max = 30 , message="* Name should be 1 to 30 characters")
 	private String name;
 
-	
+	@Min(value = 0 , message="* price should be min 0")
+	@Max(value = 10000000 , message="* Price should be max 1,00,00,000")
 	private double price;
-	
+	@Min(value = 0 , message="* gst% should be min 0")
+	@Max(value = 100 , message="* gst% should be max 100")
     private double gst;
     
     

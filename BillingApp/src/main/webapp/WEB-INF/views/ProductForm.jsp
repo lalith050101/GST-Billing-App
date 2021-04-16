@@ -3,10 +3,13 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ProductForm</title>
-<style>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ProductForm</title>
+	
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	
+	<style>
 	body{
 	background-repeat:  no-repeat;
 
@@ -115,13 +118,13 @@
             <a class="headerlink" href="/newProduct">NEW PRODUCT</a>
            <a id="mainlink" href="/">GST BILLING APP</a>
           
-            <a class="headerlink" href="/BillingProduct">GENERATE A BILL</a>
+            <a class="headerlink" href="/BillingProduct">CART<i class='fas fa-shopping-cart' style='font-size:24px'></i></a>
     	
     	</div>
      <div align="center" class="productform">
        <h1>PRODUCT</h1>
         <h2 class="error">${msg}</h2>
-        <form:form  action="saveProduct?pdcode=${product.code}?${product.name}" method="post"   modelAttribute="product">
+        <form:form  action="saveProduct?pdcode=${product.code}&pdname=${product.name}" method="post"   modelAttribute="product">
         <table >
 	
             <tr>
@@ -131,18 +134,18 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><form:input id="proname" path="name" maxlength="30" required="required" /></td>
+                <td><form:input id="proname" path="name" maxlength="30"  /></td>
                 <form:errors path="name" cssClass="error"/>
             </tr>
             <tr>
                 <td>Price:</td>
                 <td><form:input id="proprice"  path="price"  required="required" /></td>
-                
+                <form:errors path="price" cssClass="error"/>
             </tr>
             <tr>
                 <td>GST:</td>
                 <td><form:input id="progst" path="gst" required="required" /></td>
-
+				<form:errors path="gst" cssClass="error"/>
             </tr>
             <tr>
                 <td  align="center"><input class="btn" type="submit" value="Save"></td>

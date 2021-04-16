@@ -5,10 +5,25 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head >
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
        <title>Product List</title>
        
+       <meta name='viewport' content='width=device-width, initial-scale=1'>
+		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+		
+       <script> 
+        function printDiv() { 
+            var divContents = document.getElementById("bill").innerHTML; 
+            var a = window.open('', '', 'height=500, width=500'); 
+            a.document.write('<html>'); 
+            a.document.write('<body ><h1> Bill </h1>'); 
+            a.document.write(divContents); 
+            a.document.write('</body></html>'); 
+            a.document.close(); 
+            a.print(); 
+        } 
+    </script> 
        <style>
 
       	body{
@@ -142,7 +157,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
  		 <a class="headerlink" href="/newProduct">NEW PRODUCT</a>
            <a id="mainlink" href="/">GST BILLING APP</a>
           
-            <a class="headerlink" href="/BillingProduct">GENERATE A BILL</a>
+            <a class="headerlink" href="/BillingProduct">CART<i class='fas fa-shopping-cart' style='font-size:24px'></i></a>
  		
  		</div>
  
@@ -197,7 +212,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
        if(!(boolean)request.getAttribute("isEmpty"))
        {
        
-       %>  
+       %> 
+       <div id="bill">
           <table id="products" >
              <tr >
               <th>NO</th>
@@ -236,9 +252,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
              <td>${GrandTotal}</td>
            	<td><a class="actionlink" href="cancelBill">Cancel Bill</a></td>
              </tr>   
-                  
+             
+             <tr>
+             <td colspan="6" align="right">Print Bill</td>
+             
+           	<td colspan="2"><input type="button" value="Print" onclick="printDiv()">  </td>
+             </tr>       
          </table>  
-         
+        </div>  
           <%
 		    } 
 		  %>
