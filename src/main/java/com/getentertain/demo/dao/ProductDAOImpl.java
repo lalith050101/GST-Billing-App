@@ -22,16 +22,22 @@ public class ProductDAOImpl implements ProductDAO{
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-   private void createTable() throws SQLException {
-    String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double , pgst double, pqnty int, ptotal double);
-    Statement stmt = conn.createStatement();
-    stmt.execute(sqlCreate);
+   private void createTable() {
+    try {
+    	String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double , pgst double, pqnty int, ptotal double)";
+    	jdbcTemplate.execute(sqlCreate);
+    }
+    catch(Exception e) {
+    	System.out.println("exception in creating table");
+    }
+    
+    
      }
  
     @Override
     public boolean saveOrUpdate(Product product, String pdcode, String pdname) {
     	
-    	
+    	this.createTable();
     	if (this.get(pdcode) != null || this.get2(pdname)!=null) {
 	    		
 	            
@@ -53,6 +59,7 @@ public class ProductDAOImpl implements ProductDAO{
  
     @Override
     public void delete(String productCode) {
+    	
     	String sql = "DELETE FROM product WHERE code = ?";
         jdbcTemplate.update(sql, productCode);
     }
@@ -63,6 +70,7 @@ public class ProductDAOImpl implements ProductDAO{
     
     @Override
     public List<Product> list() {
+    	this.createTable();
     	 String sql = "SELECT * FROM product ORDER BY name";
     	    List<Product> listProduct = jdbcTemplate.query(sql, new RowMapper<Product>() {
     	 
@@ -85,6 +93,7 @@ public class ProductDAOImpl implements ProductDAO{
  
     @Override
     public Product get(String code) {
+    	
     	  String sql = "SELECT * FROM product WHERE code='"+code+"'";
     	    return jdbcTemplate.query(sql, new ResultSetExtractor<Product>() {
     	 
