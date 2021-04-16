@@ -25,11 +25,22 @@ public class BillingProductDAOImpl  implements BillingProductDAO{
 	 public BillingProductDAOImpl(DataSource dataSource) {
 	        jdbcTemplate = new JdbcTemplate(dataSource);
 	    }
+	
+	  private void createTable() {
+	    try {
+		String sqlCreate = "CREATE TABLE IF NOT EXISTS billingproduct  ( pcode  varchar(45) , pname  varchar(45) , pprice  double precision , pgst double precision, pqnty int, ptotal double precision)";
+		jdbcTemplate.execute(sqlCreate);
+	    }
+	    catch(Exception e) {
+		System.out.println("exception in creating table" + e);
+	    }
+    
+     	}
 	 
 	
 	 @Override
 	public void addProduct(String pcode,int quantity) {
-		
+		this.createTable();
 		 BillingProduct billingProduct=this.get(pcode);
 		 if(billingProduct == null) {
 
@@ -47,6 +58,7 @@ public class BillingProductDAOImpl  implements BillingProductDAO{
 	
 	@Override
 	 public void removeProduct(String pcode) {
+		 
 		 String sql = "DELETE FROM  billingproduct where pcode=?";
          jdbcTemplate.update(sql, pcode);
  
@@ -68,6 +80,7 @@ public class BillingProductDAOImpl  implements BillingProductDAO{
 	
 	@Override
     public List<BillingProduct> list() {
+	    this.createTable();
     	 String sql = "SELECT * FROM billingproduct ORDER BY pname";
     	    List<BillingProduct> listBillingProduct = jdbcTemplate.query(sql, new RowMapper<BillingProduct>() {
     	 
@@ -91,6 +104,7 @@ public class BillingProductDAOImpl  implements BillingProductDAO{
 	
 	@Override
 	   public double getGrandTotal() {
+		   this.createTable();
 		  String sql = "SELECT sum(ptotal) FROM billingproduct ";
 		  double grandtotal = jdbcTemplate.queryForObject(sql,Double.class);
 		  return Math.round((grandtotal*100.0)/100.0);
