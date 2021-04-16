@@ -24,7 +24,7 @@ public class ProductDAOImpl implements ProductDAO{
 
    private void createTable() {
     try {
-    	String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( pcode  varchar(45) , pname  varchar(45) , pprice  double precision , pgst double precision, pqnty int, ptotal double precision)";
+    	String sqlCreate = "CREATE TABLE IF NOT EXISTS product  ( code  varchar(45) , name  varchar(45) , price  double precision , gst double precision, qnty int, total double precision)";
     	jdbcTemplate.execute(sqlCreate);
     }
     catch(Exception e) {
