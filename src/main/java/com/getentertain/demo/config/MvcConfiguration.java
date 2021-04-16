@@ -42,7 +42,7 @@ public class MvcConfiguration{
 //        dataSource.setUrl("jdbc:mysql://localhost:3306/gstbilling");
 //        dataSource.setUsername("root");
 //        dataSource.setPassword("root");
-        dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
+        //dataSource.setDriverClassName(environment.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(environment.getProperty("jdbc.url"));
 		dataSource.setUsername(environment.getProperty("jdbc.username"));
 		dataSource.setPassword(environment.getProperty("jdbc.password"));
