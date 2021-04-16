@@ -4,7 +4,7 @@
 ## Functional Features:
 This application have a provision to maintain a database for storing all products.  
 The application contains products page to list all available products in the store.  
-The app provides adding, updating or deletion of a product.  
+The app provides adding, updating and deletion of a product.  
  
 Also,the application provides facility of adding products to cart and billing of cart products which can be printed or downloaded as PDF.  
 
