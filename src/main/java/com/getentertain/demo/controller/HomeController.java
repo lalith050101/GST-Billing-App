@@ -122,7 +122,7 @@ public class HomeController {
 	 @RequestMapping(value="/searchProduct", method = RequestMethod.POST)
 	 public ModelAndView searchProduct(HttpServletRequest request) throws IOException{
 	     String searchvalue = request.getParameter("searchvalue");
-  	     List<Product> products = productDAO.getNameLike(searchvalue);
+  	     List<Product> products = productDAO.getNameLike(searchvalue.toLowerCase());
 	     Product product; 
 		 System.out.println("size of prods is " + products.size());
   	     String msg;
