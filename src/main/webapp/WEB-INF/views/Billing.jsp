@@ -241,8 +241,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 	             	<input type="number" value="${product.qnty}" name="qnty" onchange="this.form.submit()" required>
 	             	</form>
              	</td>	
-		 <fmt:setLocale value="en_IN"/>
-                <td><fmt:formatNumber value = "${product.total}" type = "currency"/></td>
+		 
+                <td>	<fmt:setLocale value="en_IN"/>
+			<fmt:formatNumber value = "${product.total}" type = "currency"> </fmt:formatNumber></td>
  
                 <td>   <a class="actionlink" href="/removeBillingProduct?code=${product.code}">Remove</a>
                  </td> 
