@@ -9,7 +9,7 @@ public interface ProductDAO {
     public void delete(String code);
      
     public Product get(String code);
-     
+    public List<Product> getNameLike(String name);
     public Product get2(String name);
     public List<Product> list();
 }
