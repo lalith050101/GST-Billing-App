@@ -155,7 +155,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
  		<div class="header">
  		
  		 <a class="headerlink" href="/newProduct">NEW PRODUCT</a>
-           <a id="mainlink" href="/">GST BILLING APP</a>
+           <a id="mainlink" href="/">BILL EASY</a>
           
             <a class="headerlink" href="/BillingProduct">CART<i class='fas fa-shopping-cart' style='font-size:24px'></i></a>
  		
