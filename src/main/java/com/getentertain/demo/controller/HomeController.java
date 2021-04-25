@@ -148,6 +148,7 @@ public class HomeController {
   	    	 msg="";
   	    	 isExist = true;
   	     }
+		 System.out.println("size of prods is " + products.size());
   	     ModelAndView model = new ModelAndView();
 	     
 		 model.setViewName("Billing");
