@@ -114,6 +114,30 @@ public class ProductDAOImpl implements ProductDAO{
     	 
     	    });
     }
+
+    @Override
+    public List<Product> getNameLike(String name) {
+    	
+    	  String sql = "SELECT * FROM product WHERE name LIKE %'"+name+"'%";
+    	   List<Product> listProduct = jdbcTemplate.query(sql, new RowMapper<Product>() {
+    	 
+    	        @Override
+    	        public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+    	            Product aProduct = new Product();
+    	 
+    	            aProduct.setCode(rs.getString("code"));
+    	            aProduct.setName(rs.getString("name"));
+    	            aProduct.setPrice(rs.getDouble("price"));
+    	            aProduct.setGst(rs.getDouble("gst"));
+    	   	 
+    	            return aProduct;
+    	        }
+    	 
+    	    });
+    	 
+    	    return listProduct;
+    }
+	
     
     @Override
     public Product get2(String name) {
