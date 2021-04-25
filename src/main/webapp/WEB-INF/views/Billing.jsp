@@ -242,11 +242,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 	             	</form>
              	</td>	
 		 
-                <td>	
-			<fmt:formatNumber value = "${product.total}" type = "number" minFractionDigits="2" maxFractionDigits="2"> </fmt:formatNumber></td>
- 
-                <td>   <a class="actionlink" href="/removeBillingProduct?code=${product.code}">Remove</a>
-                 </td> 
+                <td> <fmt:formatNumber value = "${product.total}" type = "number" minFractionDigits="2" maxFractionDigits="2"/> </td>
+		     
+                <td>   <a class="actionlink" href="/removeBillingProduct?code=${product.code}">Remove</a> </td> 
                           
              </tr>
              </c:forEach>   
@@ -254,7 +252,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                
              <tr>
              <td colspan="6" align="right">Grand Total:</td>
-             <td>${GrandTotal}</td>
+             <td> <fmt:formatNumber value = "${GrandTotal}" type = "number" minFractionDigits="2" maxFractionDigits="2"/> </td>
            	<td><a class="actionlink" href="cancelBill">Cancel Bill</a></td>
              </tr>   
              
