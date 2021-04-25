@@ -116,7 +116,7 @@
     	
     		
             <a class="headerlink" href="/newProduct">NEW PRODUCT</a>
-           <a id="mainlink" href="/">GST BILLING APP</a>
+           <a id="mainlink" href="/">BILL EASY</a>
           
             <a class="headerlink" href="/BillingProduct">CART<i class='fas fa-shopping-cart' style='font-size:24px'></i></a>
     	
