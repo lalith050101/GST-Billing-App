@@ -139,6 +139,7 @@ public class HomeController {
 			product = productDAO.get(searchvalue);
 			if(product != null) {
 				products.add(product);
+			}	
 		 }
  
 		if(products.size() == 0)
