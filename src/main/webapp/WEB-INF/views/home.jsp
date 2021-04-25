@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Product List</title>
+        <title>BILL EASY</title>
         
         <meta name='viewport' content='width=device-width, initial-scale=1'>
 		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
