@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -239,7 +241,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 	             	<input type="number" value="${product.qnty}" name="qnty" onchange="this.form.submit()" required>
 	             	</form>
              	</td>	
-                <td>${product.total}</td>
+		
+                <td><fmt:formatNumber value = "${product.total}" type = "currency"/></td>
  
                 <td>   <a class="actionlink" href="/removeBillingProduct?code=${product.code}">Remove</a>
                  </td> 
