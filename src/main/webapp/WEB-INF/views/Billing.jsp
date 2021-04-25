@@ -180,14 +180,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
        
        
         <table>
-	      <tr>   
+	<tr>   
              <th>Code</th>
              <th>Name</th>
              <th>Price</th>
              <th>GST%</th>  
              <th>Quantity</th>
-         </tr>
-         <tr>
+        </tr>
+	<c:forEach var="pro" items="${pros}" varStatus="status">
+        <tr>
          	<td>${pro.code}</td>
             <td>${pro.name}</td>
             <td>${pro.price}</td>
@@ -196,10 +197,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
             <form:form action='addBillingProduct?pdcode=${pro.code}' method='post'>
           <td><input type='number'  name='qnty' value='1'></td>
          <td><input type='submit' value='Add'></td>
-         </form:form>
-            
+         </form:form> 
             <td>
          </tr>
+	</c:forEach>  
          
          </table>
 
