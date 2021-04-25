@@ -118,7 +118,7 @@ public class ProductDAOImpl implements ProductDAO{
     @Override
     public List<Product> getNameLike(String name) {
     	
-    	  String sql = "SELECT * FROM product WHERE name LIKE %"+name+"%";
+    	  String sql = "SELECT * FROM product WHERE name LIKE '%"+name+"%'";
     	   List<Product> listProduct = jdbcTemplate.query(sql, new RowMapper<Product>() {
     	 
     	        @Override
