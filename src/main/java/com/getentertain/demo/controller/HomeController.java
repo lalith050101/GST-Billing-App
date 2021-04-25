@@ -122,7 +122,7 @@ public class HomeController {
 	 @RequestMapping(value="/searchProduct", method = RequestMethod.POST)
 	 public ModelAndView searchProduct(HttpServletRequest request) throws IOException{
 		 String searchvalue = request.getParameter("searchvalue");
-  	     Product product = productDAO.get(searchvalue);
+  	     List<Product> products = productDAO.getNameLike(searchvalue);
   	     String msg;
   	     boolean isExist ;
   	     boolean isEmpty=true;
@@ -132,12 +132,12 @@ public class HomeController {
 			 
 			 }
   	   
-		if(product==null)
+		if(products.size() == 0)
 		 {
-			product = productDAO.get2(searchvalue);
+			products = Arrays.asList(productDAO.get2(searchvalue));
 		 }
  
-		if(product==null)
+		if(products.size() == 0)
 		 {
 				msg = "No product exists";
 				isExist = false;
@@ -154,7 +154,7 @@ public class HomeController {
 	     model.addObject("msg",msg);
 	     model.addObject("isExist",isExist);
 	     model.addObject("isEmpty",isEmpty);
-	     model.addObject("pro", product);
+	     model.addObject("pro", products);
 	     return model;
 	 }
 	 
