@@ -113,7 +113,7 @@ public class HomeController {
 			 model.addObject("msg","");
 			 model.addObject("isExist",false);
 			 model.addObject("isEmpty",isEmpty);
-			 model.addObject("pro",null);
+			 model.addObject("pros",null);
 			 model.addObject("GrandTotal",grandtotal);
 			
 			 return model;
@@ -134,7 +134,7 @@ public class HomeController {
   	   
 		if(products.size() == 0)
 		 {
-			products = Arrays.asList(productDAO.get2(searchvalue));
+			products = Arrays.asList(productDAO.get(searchvalue));
 		 }
  
 		if(products.size() == 0)
@@ -154,7 +154,7 @@ public class HomeController {
 	     model.addObject("msg",msg);
 	     model.addObject("isExist",isExist);
 	     model.addObject("isEmpty",isEmpty);
-	     model.addObject("pro", products);
+	     model.addObject("pros", products);
 	     return model;
 	 }
 	 
