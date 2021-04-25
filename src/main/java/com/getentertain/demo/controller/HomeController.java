@@ -123,6 +123,7 @@ public class HomeController {
 	 public ModelAndView searchProduct(HttpServletRequest request) throws IOException{
 		 String searchvalue = request.getParameter("searchvalue");
   	     List<Product> products = productDAO.getNameLike(searchvalue);
+		 System.out.println("size of prods is " + products.size());
   	     String msg;
   	     boolean isExist ;
   	     boolean isEmpty=true;
