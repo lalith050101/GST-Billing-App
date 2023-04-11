@@ -10,7 +10,6 @@ Also,the application provides facility of adding products to cart and billing of
 
 
 ## Demo:
-   Live Demo: https://gst-billing-app.herokuapp.com/  
   Demo Video: [Click Here](https://drive.google.com/file/d/1w_VFpMfXXY1CpVlwgGTmWVVlnYL_8ZP9/view)  
   
 ## Technologies Used:
